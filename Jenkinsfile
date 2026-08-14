@@ -13,4 +13,15 @@ pipeline{
             }
         }
     }
+    post {
+        success{
+            echo 'Build Succeeded - tests passed'
+        }
+        failure{
+            echo 'Build failed - checkl and run tests again'
+        }
+        always{
+            echo "Pipeline finshed with status: ${currentBuild.result}"
+        }
+    }
 }

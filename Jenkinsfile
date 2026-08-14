@@ -4,7 +4,7 @@ pipeline{
         stage('Verify Python Env'){
             steps{
                 sh 'python3 --version'
-                sh 'ls la'
+                sh 'ls -la'
             }
         }
         stage('Test'){

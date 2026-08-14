@@ -8,4 +8,4 @@ def test_intentinal_failure():
     assert False, "intentional failure"
 
 test_hello()
-test_intentinal_failure
+test_intentinal_failure()

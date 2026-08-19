@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    environment{
+        GREETING_EXPECTED = "Hello from Jenkins!"
+    }
     stages{
         stage('Verify Python Env'){
             steps{
@@ -7,8 +10,9 @@ pipeline{
                 sh 'ls -la'
             }
         }
-        stage('Test'){
+        stage('Run Tests'){
             steps {
+                sh 'echo "Expecting: $GREETING_EXPECTED"'
                 sh 'python3 test_app.py'
             }
         }
@@ -18,7 +22,7 @@ pipeline{
             echo 'Build Succeeded - tests passed'
         }
         failure{
-            echo 'Build failed - checkl and run tests again'
+            echo 'Build failed - check and run tests again'
         }
         always{
             echo "Pipeline finshed with status: ${currentBuild.result}"

@@ -1,2 +1,2 @@
 # jenkins-lab
-jenkins project
+jenkins project test

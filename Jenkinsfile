@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    parameters{
+        booleanParam(name: 'SKIP_TESTS', defaultValue: false, description: 'Skip the test stage')
+    }
     environment{
         GREETING_EXPECTED = "Hello from Jenkins!"
     }
@@ -11,6 +14,9 @@ pipeline{
             }
         }
         stage('Run Tests'){
+            when {
+                expression { params.SKIP_TESTS == false } 
+            }
             steps {
                 sh 'echo "Expecting: $GREETING_EXPECTED"'
                 sh 'python3 test_app.py'

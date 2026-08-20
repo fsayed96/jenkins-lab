@@ -1,2 +1,2 @@
 # jenkins-lab
-jenkins project test
+jenkins project test triggers

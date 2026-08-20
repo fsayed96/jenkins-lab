@@ -19,7 +19,9 @@ pipeline{
             }
             steps {
                 sh 'echo "Expecting: $GREETING_EXPECTED"'
-                sh 'python3 test_app.py'
+                sh 'pthone3 -m venv venv'
+                sh './venv/bin/pip install -r requirements.txt'
+                sh './venv/bin/python test_app.py'
             }
         }
     }

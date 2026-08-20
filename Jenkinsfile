@@ -23,6 +23,11 @@ pipeline{
                 sh './venv/bin/pip install -r requirements.txt'
                 sh './venv/bin/python test_app.py'
             }
+            post {
+                always{
+                    junit 'results.xml'
+                }
+            }
         }
     }
     post {
